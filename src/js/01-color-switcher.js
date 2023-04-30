@@ -1,6 +1,6 @@
-const startBtn = document.querySelector('button[data-start]');
+const startBtn = document.querySelector('[data-start]');
 
-const stoptBtn = document.querySelector('button[data-stop]');
+const stoptBtn = document.querySelector('[data-stop]');
 
 const body = document.querySelector('body');
 
