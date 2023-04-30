@@ -17,6 +17,23 @@ img {
   max-width: 100%;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.buttons__button {
+  border-color: #bfbfbf;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 10px 20px;
+}
+
 .timer {
   display: flex;
   align-items: center;
