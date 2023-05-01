@@ -1,6 +1,6 @@
 import flatpickr from 'flatpickr';
-
 import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const startBtn = document.querySelector('[data-start]');
 const dataDays = document.querySelector('[data-days]');
@@ -36,18 +36,22 @@ startBtn.addEventListener('click', () => {
     const remainingTime = convertMs(ms);
     const { days, hours, minutes, seconds } = remainingTime;
 
-    dataDays.innerHTML = days;
-    dataHours.innerHTML = hours;
-    dataMinutes.innerHTML = minutes;
-    dataSeconds.innerHTML = seconds;
+    dataDays.innerHTML = addLeadingZero(days);
+    dataHours.innerHTML = addLeadingZero(hours);
+    dataMinutes.innerHTML = addLeadingZero(minutes);
+    dataSeconds.innerHTML = addLeadingZero(seconds);
   }, 1000);
 });
+
+const addLeadingZero = value => {
+  return value.toString().padStart(2, '0');
+};
 
 function processDateSelection() {
   if (chosenDate > new Date()) {
     startBtn.disabled = false;
   } else {
-    window.alert('Please choose a date in the future');
+    Notify.failure('Please choose a date in the future');
     startBtn.disabled = true;
   }
 }
